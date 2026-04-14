@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Invited!</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #000000, #000);
+  color: white;
+  text-align: center;
+}
+
+.invite {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 25px;
+}
+
+/* PAGE CONTROL */
+.page {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+/* CONTENT STYLES (UNCHANGED) */
+
+
+.spiderman img {
+  width: 500px;
+  margin-top: 50%;
+  
+}
+
+.section {
+  margin-top: 10%;
+
+}
+
+.section h3 {
+  color: #850202;
+   margin-bottom: 10%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.card p {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.timeline {
+  text-align: left;
+  max-width: 400px;
+  margin: auto;
+}
+
+.timeline div {
+  background: rgba(255,0,0,0.2);
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ARROWS POSITIONED LEFT & RIGHT */
+.arrow {
+  position: fixed;
+  top: 90%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 15px;
+  color: #a60202;
+}
+
+.left {
+  left: 20px;
+}
+
+.right {
+  right: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .spiderman img {
+    max-width: 100%;
+  }
+
+  .timeline {
+    max-width: 100%;
+  }
+
+  .card img {
+    height: 100px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="invite">
+
+  <!-- PAGE 1 -->
+  <div class="page active" id="page1">
+
+    <div class="spiderman">
+      <img src="https://cdn.marvel.com/content/2x/spidermanbrandnewday_lob_mas_dsk_01.jpg" alt="Spiderman">
+    </div>
+
+    <div class="arrow right" onclick="showPage(2)">→</div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="page2">
+
+    <div class="section">
+      <h3>Activities</h3>
+
+      <div class="grid">
+
+        <div class="card">
+          <img src="https://i.guim.co.uk/img/media/54722f12398a527639c36f664e146b948d94bc77/0_0_6000_4285/master/6000.jpg?width=645&dpr=2&s=none&crop=none">
+          <p>Lunch</p>
+        </div>
+
+        <div class="card">
+          <img src="https://pbs.twimg.com/media/GLSIONsaEAAl3oB.jpg">
+          <p>Photobooth</p>
+        </div>
+
+        <div class="card">
+          <img src="https://www.ungeek.ph/wp-content/uploads/2025/07/trinoma-a-giant-screen-cinema-7.webp">
+          <p>Cinema</p>
+        </div>
+
+        <div class="card">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGSNr8d7PUwjw7LCjesgkWokGIHuUw5GKKz_1nTi_ErbfzL33krn9h0Si4talvC6GBrysSYNnLnnMoxowUVm_mMkmfMaBV2ANTPYOwXkcJ81j8WOv3-R0xDyCuMpWxXvEQgqb2vvtP03kk=s1360-w1360-h1020-rw">
+          <p>Vertis</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="arrow left" onclick="showPage(1)">←</div>
+    <div class="arrow right" onclick="showPage(3)">→</div>
+
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page" id="page3">
+
+    <div class="section">
+      <h3>Itinerary</h3>
+
+      <div class="timeline">
+        <div>10:00 AM – Meet up</div>
+        <div>11:00 AM – Marugame Lunch</div>
+        <div>12:00 PM – Photobooth</div>
+        <div>1:00 PM – Buy snacks & tickets</div>
+        <div>2:00 PM – Watch movie</div>
+        <div>4:00 PM – Buy foods</div>
+        <div>5:00 PM – Go to Vertis</div>
+        <div>10:00 PM – Uwi na</div>
+      </div>
+    </div>
+
+    <div class="arrow left" onclick="showPage(2)">←</div>
+
+  </div>
+
+</div>
+
+<script>
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + page).classList.add('active');
+}
+</script>
+
+</body>
+</html>
